@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,79 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGV-YB-pZx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="flexibleSpace" id="ttw-GD-CrJ"/>
+                                    <barButtonItem systemItem="camera" id="QSv-md-Mli">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="tapCamera:" destination="BYZ-38-t0r" id="2kl-LC-Gfb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="F0c-5D-kOi"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U65-im-UZV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="50t-FB-uOu">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" systemItem="flexibleSpace" id="y0C-q9-JQX"/>
+                                    <barButtonItem title="Item" systemItem="trash" id="WNt-DB-ErP">
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.46666666666666667" green="1" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NGV-YB-pZx" secondAttribute="trailing" constant="-20" id="5N2-JZ-ueq"/>
+                            <constraint firstItem="U65-im-UZV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="8VV-nd-3TK"/>
+                            <constraint firstItem="U65-im-UZV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="KNq-PU-dPa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NGV-YB-pZx" secondAttribute="bottom" id="i60-Qy-pIx"/>
+                            <constraint firstItem="NGV-YB-pZx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="xP4-Dg-thb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U65-im-UZV" secondAttribute="trailing" constant="-20" id="ydU-cf-8u7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="NGV-YB-pZx"/>
+                                <exclude reference="U65-im-UZV"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="8VV-nd-3TK"/>
+                                <exclude reference="KNq-PU-dPa"/>
+                                <exclude reference="ydU-cf-8u7"/>
+                                <exclude reference="5N2-JZ-ueq"/>
+                                <exclude reference="xP4-Dg-thb"/>
+                                <exclude reference="i60-Qy-pIx"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="NGV-YB-pZx"/>
+                                <include reference="U65-im-UZV"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="8VV-nd-3TK"/>
+                                <include reference="KNq-PU-dPa"/>
+                                <include reference="ydU-cf-8u7"/>
+                                <include reference="5N2-JZ-ueq"/>
+                                <include reference="xP4-Dg-thb"/>
+                                <include reference="i60-Qy-pIx"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="exportButton" destination="50t-FB-uOu" id="t6J-mK-42x"/>
+                        <outlet property="trashButton" destination="WNt-DB-ErP" id="wgz-Mk-unL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="699" y="465"/>
         </scene>
     </scenes>
 </document>
