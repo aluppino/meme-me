@@ -8,21 +8,52 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var exportButton: UIBarButtonItem!
     @IBOutlet weak var trashButton: UIBarButtonItem!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     
     let hasCamera = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+    
+    let imagePicker = UIImagePickerController()
+    
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName: UIColor.blackColor(),
+        NSForegroundColorAttributeName: UIColor.whiteColor(),
+        NSFontAttributeName: UIFont(name: "Impact", size: 40)!,
+        NSStrokeWidthAttributeName: -4
+    ]
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        topTextField.contentVerticalAlignment = .Top
+        topTextField.textAlignment = NSTextAlignment.Center
+        bottomTextField.contentVerticalAlignment = .Top
+        bottomTextField.textAlignment = NSTextAlignment.Center
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         exportButton.enabled = false
         trashButton.enabled = false
+        
+        imagePicker.delegate = self
+        topTextField.delegate = self
+        bottomTextField.delegate = self
+        
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
     }
 
-
+    // ------------------------------------------------
+    // ------------ Camera / Photo Library ------------
+    // ------------------------------------------------
+    
     @IBAction func tapCamera(sender: UIBarButtonItem) {
         let alertController = UIAlertController()
         let choosePhotoAction = UIAlertAction(title:"Photo Library", style:UIAlertActionStyle.Default) {
@@ -47,11 +78,18 @@ class ViewController: UIViewController {
     }
     
     func openCamera(takeNewPhoto: Bool) {
-        let imagePicker = UIImagePickerController()
         if (takeNewPhoto) {
             imagePicker.sourceType = .Camera
+        } else {
+            imagePicker.sourceType = .PhotoLibrary
         }
         self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        imageView.image = image
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func alertNoCamera() {
@@ -62,6 +100,19 @@ class ViewController: UIViewController {
         }
         alertController.addAction(okAction)
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    // ------------------------------------------------
+    // ----------------- Text Fields ------------------
+    // ------------------------------------------------
+    
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
 
 }
