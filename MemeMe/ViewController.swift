@@ -16,6 +16,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    @IBOutlet weak var topTextFieldConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomTextFieldConstraint: NSLayoutConstraint!
+    
     let hasCamera = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     
     let imagePicker = UIImagePickerController()
@@ -34,8 +37,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.contentVerticalAlignment = .Top
         bottomTextField.textAlignment = NSTextAlignment.Center
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "readjustConstraints", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,8 +93,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         imageView.image = image
-        
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: readjustConstraints)
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        readjustConstraints()
+    }
+    
+    func readjustConstraints() {
+        if let image = imageView.image {
+            let imageRatio = image.size.width / image.size.height
+            let viewRatio = imageView.frame.size.width / imageView.frame.size.height
+            
+            var y: CGFloat = 0
+            var height: CGFloat = 0
+            if (imageRatio >= viewRatio) {
+                let scale = imageView.frame.size.width / image.size.width
+                height = scale * image.size.height
+                y = 0.5 * (imageView.frame.size.height - height)
+            }
+            
+            topTextFieldConstraint.constant = y + 10
+            bottomTextFieldConstraint.constant = -y - 10
+        }
     }
     
     func alertNoCamera() {
