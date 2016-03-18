@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -58,10 +59,16 @@
                                 <items>
                                     <barButtonItem systemItem="action" id="50t-FB-uOu">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="exportMeme:" destination="BYZ-38-t0r" id="qgc-Dy-g0q"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Item" systemItem="flexibleSpace" id="y0C-q9-JQX"/>
                                     <barButtonItem title="Item" systemItem="trash" id="WNt-DB-ErP">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="trashMeme:" destination="BYZ-38-t0r" id="ETl-1T-Pvb"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <variation key="default">
@@ -78,7 +85,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4uA-t1-8Mk">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="RU9-rK-ftv">
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="RU9-rK-ftv">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="n3Y-oG-Aq7"/>
@@ -97,7 +104,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Dja-s8-SEV">
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Dja-s8-SEV">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="aPn-oJ-hRC"/>
@@ -148,22 +155,22 @@
                                 <exclude reference="Dja-s8-SEV"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GWU-o7-7Po"/>
-                                <exclude reference="JHI-Bw-Bco"/>
-                                <exclude reference="bLh-YN-3yY"/>
-                                <exclude reference="2T3-iH-ptK"/>
-                                <exclude reference="Bpu-ph-x69"/>
-                                <exclude reference="Zlg-MZ-hIc"/>
-                                <exclude reference="vTX-fb-Llp"/>
+                                <exclude reference="XmC-Wh-XwP"/>
                                 <exclude reference="9to-2l-Bpj"/>
                                 <exclude reference="P0P-Qx-t8l"/>
+                                <exclude reference="vTX-fb-Llp"/>
                                 <exclude reference="Jbg-UT-TUW"/>
                                 <exclude reference="Yy6-Jv-wdR"/>
                                 <exclude reference="rG7-OR-1xn"/>
                                 <exclude reference="BPV-Ce-Uyx"/>
                                 <exclude reference="QQN-J1-q28"/>
                                 <exclude reference="l6j-Gh-Oj3"/>
-                                <exclude reference="XmC-Wh-XwP"/>
+                                <exclude reference="GWU-o7-7Po"/>
+                                <exclude reference="JHI-Bw-Bco"/>
+                                <exclude reference="bLh-YN-3yY"/>
+                                <exclude reference="2T3-iH-ptK"/>
+                                <exclude reference="Bpu-ph-x69"/>
+                                <exclude reference="Zlg-MZ-hIc"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -175,22 +182,22 @@
                                 <include reference="Dja-s8-SEV"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GWU-o7-7Po"/>
-                                <include reference="JHI-Bw-Bco"/>
-                                <include reference="bLh-YN-3yY"/>
-                                <include reference="2T3-iH-ptK"/>
-                                <include reference="Bpu-ph-x69"/>
-                                <include reference="Zlg-MZ-hIc"/>
-                                <include reference="vTX-fb-Llp"/>
+                                <include reference="XmC-Wh-XwP"/>
                                 <include reference="9to-2l-Bpj"/>
                                 <include reference="P0P-Qx-t8l"/>
+                                <include reference="vTX-fb-Llp"/>
                                 <include reference="Jbg-UT-TUW"/>
                                 <include reference="Yy6-Jv-wdR"/>
                                 <include reference="rG7-OR-1xn"/>
                                 <include reference="BPV-Ce-Uyx"/>
                                 <include reference="QQN-J1-q28"/>
                                 <include reference="l6j-Gh-Oj3"/>
-                                <include reference="XmC-Wh-XwP"/>
+                                <include reference="GWU-o7-7Po"/>
+                                <include reference="JHI-Bw-Bco"/>
+                                <include reference="bLh-YN-3yY"/>
+                                <include reference="2T3-iH-ptK"/>
+                                <include reference="Bpu-ph-x69"/>
+                                <include reference="Zlg-MZ-hIc"/>
                             </mask>
                         </variation>
                         <connections>
@@ -202,6 +209,8 @@
                         <outlet property="bottomTextFieldConstraint" destination="Yy6-Jv-wdR" id="Sis-qr-W7O"/>
                         <outlet property="exportButton" destination="50t-FB-uOu" id="t6J-mK-42x"/>
                         <outlet property="imageView" destination="4uA-t1-8Mk" id="g6P-yU-eBQ"/>
+                        <outlet property="navbar" destination="U65-im-UZV" id="IJa-Ps-QdK"/>
+                        <outlet property="toolbar" destination="NGV-YB-pZx" id="hok-w1-lIB"/>
                         <outlet property="topTextField" destination="Dja-s8-SEV" id="Hga-ev-nYU"/>
                         <outlet property="topTextFieldConstraint" destination="vTX-fb-Llp" id="xYV-pA-b2o"/>
                         <outlet property="trashButton" destination="WNt-DB-ErP" id="wgz-Mk-unL"/>

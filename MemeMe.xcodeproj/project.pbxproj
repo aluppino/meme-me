@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17F488651C9B90BD001EA23F /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F488641C9B90BD001EA23F /* Meme.swift */; };
 		892131751C8682FB0093546F /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 892131741C86811B0093546F /* Impact.ttf */; };
 		89A073DF1C83BE98002FC10A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A073DE1C83BE98002FC10A /* AppDelegate.swift */; };
 		89A073E11C83BE98002FC10A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A073E01C83BE98002FC10A /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17F488641C9B90BD001EA23F /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		892131741C86811B0093546F /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
 		89A073DB1C83BE98002FC10A /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A073DE1C83BE98002FC10A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				89A073DE1C83BE98002FC10A /* AppDelegate.swift */,
 				89A073E01C83BE98002FC10A /* ViewController.swift */,
 				89A073E21C83BE98002FC10A /* Main.storyboard */,
+				17F488641C9B90BD001EA23F /* Meme.swift */,
 				892131741C86811B0093546F /* Impact.ttf */,
 				89A073E51C83BE98002FC10A /* Assets.xcassets */,
 				89A073E71C83BE98002FC10A /* LaunchScreen.storyboard */,
@@ -99,6 +102,7 @@
 				TargetAttributes = {
 					89A073DA1C83BE98002FC10A = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 5XA3C6TUH2;
 					};
 				};
 			};
@@ -139,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F488651C9B90BD001EA23F /* Meme.swift in Sources */,
 				89A073E11C83BE98002FC10A /* ViewController.swift in Sources */,
 				89A073DF1C83BE98002FC10A /* AppDelegate.swift in Sources */,
 			);
@@ -251,6 +256,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.angelo-luppino.MemeMe";
@@ -262,6 +268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MemeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.angelo-luppino.MemeMe";
