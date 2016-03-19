@@ -181,15 +181,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if (!viewIsShifted) {
+        if (!viewIsShifted && bottomTextField.isFirstResponder()) {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
             viewIsShifted = true
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y += getKeyboardHeight(notification)
-        viewIsShifted = false
+        if (viewIsShifted) {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+            viewIsShifted = false
+        }
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
