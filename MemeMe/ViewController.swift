@@ -19,7 +19,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextFieldConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomTextFieldConstraint: NSLayoutConstraint!
     
-//    @IBOutlet weak var navbar: UIToolbar!
     @IBOutlet weak var toolbar: UIToolbar!
     
     @IBOutlet weak var selectAPhotoLabel: UILabel!
