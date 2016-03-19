@@ -205,13 +205,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // ------------------------------------------------
 
     @IBAction func exportMeme(sender: UIBarButtonItem) {
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageView.image!, memedImage: generateMemedImage())
-        
-        self.presentViewController(UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil), animated: true, completion: nil)
+        let memedImage = generateMemedImage()
+        let avc = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        avc.completionWithItemsHandler = {(activityType, completed, returnedItems, activityError) in
+            if (completed) {
+                _ = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, image: self.imageView.image!, memedImage: memedImage)
+                if (activityType == UIActivityTypeCopyToPasteboard) {
+                    let alert = UIAlertController(title: "Success!", message: "Image copied", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else if (activityType == UIActivityTypeSaveToCameraRoll) {
+                    let alert = UIAlertController(title: "Success!", message: "Image saved to camera roll", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            }
+        }
+        self.presentViewController(avc, animated: true, completion: nil)
     }
     
     func generateMemedImage() -> UIImage {
-//        navbar.hidden = true
         toolbar.hidden = true
         let bgColor = view.backgroundColor
         view.backgroundColor = UIColor(white: 1, alpha: 0.0)
@@ -221,7 +234,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-//        navbar.hidden = false
         toolbar.hidden = false
         view.backgroundColor = bgColor
         
