@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topTextFieldConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomTextFieldConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var navbar: UIToolbar!
+//    @IBOutlet weak var navbar: UIToolbar!
     @IBOutlet weak var toolbar: UIToolbar!
     
     @IBOutlet weak var selectAPhotoLabel: UILabel!
@@ -211,7 +211,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func generateMemedImage() -> UIImage {
-        navbar.hidden = true
+//        navbar.hidden = true
         toolbar.hidden = true
         let bgColor = view.backgroundColor
         view.backgroundColor = UIColor(white: 1, alpha: 0.0)
@@ -221,7 +221,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        navbar.hidden = false
+//        navbar.hidden = false
         toolbar.hidden = false
         view.backgroundColor = bgColor
         
