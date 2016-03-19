@@ -22,6 +22,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var navbar: UIToolbar!
     @IBOutlet weak var toolbar: UIToolbar!
     
+    @IBOutlet weak var selectAPhotoLabel: UILabel!
+    @IBOutlet weak var downArrowImage: UIImageView!
+    @IBOutlet weak var stripesImage: UIImageView!
+    
+    
     let hasCamera = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     
     let imagePicker = UIImagePickerController()
@@ -112,6 +117,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         imageView.image = image
+        
+        trashButton.enabled = true
+        exportButton.enabled = true
+        selectAPhotoLabel.hidden = true
+        downArrowImage.hidden = true
+        stripesImage.hidden = true
+        
         dismissViewControllerAnimated(true, completion: didPickImage)
     }
     
@@ -119,8 +131,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         readjustConstraints()
         topTextField.hidden = false
         bottomTextField.hidden = false
-        trashButton.enabled = true
-        exportButton.enabled = true
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -224,6 +234,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.topTextField.text = "TOP"
                 self.bottomTextField.hidden = true
                 self.bottomTextField.text = "BOTTOM"
+                self.selectAPhotoLabel.hidden = false
+                self.downArrowImage.hidden = false
+                self.stripesImage.hidden = false
                 self.exportButton.enabled = false
                 self.trashButton.enabled = false
             }))
