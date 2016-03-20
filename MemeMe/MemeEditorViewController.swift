@@ -37,6 +37,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         NSStrokeWidthAttributeName: -4
     ]
     
+    var memedImage: UIImage!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
@@ -193,11 +195,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // ------------------------------------------------
 
     @IBAction func exportMeme(sender: UIBarButtonItem) {
-        let memedImage = generateMemedImage()
+        memedImage = generateMemedImage()
         let avc = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         avc.completionWithItemsHandler = {(activityType, completed, returnedItems, activityError) in
             if (completed) {
-                _ = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, image: self.imageView.image!, memedImage: memedImage)
+                self.saveMeme()
                 if (activityType == UIActivityTypeCopyToPasteboard) {
                     let alert = UIAlertController(title: "Success!", message: "Image copied", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
@@ -210,6 +212,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             }
         }
         presentViewController(avc, animated: true, completion: nil)
+    }
+    
+    func saveMeme() {
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageView.image!, memedImage: memedImage)
     }
     
     func generateMemedImage() -> UIImage {
