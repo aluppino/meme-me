@@ -224,19 +224,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func generateMemedImage() -> UIImage {
-        toolbar.hidden = true
-        let bgColor = view.backgroundColor
-        view.backgroundColor = UIColor(white: 1, alpha: 0.0)
-        
-        UIGraphicsBeginImageContextWithOptions(self.view.frame.size, view.opaque, 0.0)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
-        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let topTextImage = textFieldToImage(topTextField)
+        let bottomTextImage = textFieldToImage(bottomTextField)
+
+        // Combine with original image
+        UIGraphicsBeginImageContextWithOptions(imageView.image!.size, view.opaque, 0.0)
+        imageView.image!.drawInRect(CGRect(x: 0, y: 0, width: imageView.image!.size.width, height: imageView.image!.size.height))
+        let propHeight = (imageView.image!.size.width * topTextImage.size.height) / topTextImage.size.width
+        topTextImage.drawInRect(CGRect(x: 0, y: 0, width: imageView.image!.size.width, height: propHeight))
+        bottomTextImage.drawInRect(CGRect(x: 0, y: imageView.image!.size.height-propHeight, width: imageView.image!.size.width, height: propHeight))
+        let memedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        toolbar.hidden = false
-        view.backgroundColor = bgColor
-        
         return memedImage
+    }
+    
+    func textFieldToImage(textField: UITextField) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(textField.bounds.size, false, 0.0)
+        textField.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let textImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return textImage
     }
     
     @IBAction func trashMeme(sender: UIBarButtonItem) {
