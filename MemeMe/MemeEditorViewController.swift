@@ -37,8 +37,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         NSStrokeWidthAttributeName: -4
     ]
     
-    var viewIsShifted = false
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         
@@ -102,7 +100,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         alertController.addAction(choosePhotoAction)
         alertController.addAction(takePhotoAction)
         alertController.addAction(cancelAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     func openCamera(takeNewPhoto: Bool) {
@@ -111,7 +109,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         } else {
             imagePicker.sourceType = .PhotoLibrary
         }
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
@@ -157,7 +155,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             action in self.dismissViewControllerAnimated(true, completion: nil)
         }
         alertController.addAction(okAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        presentViewController(alertController, animated: true, completion: nil)
     }
     
     // ------------------------------------------------
@@ -175,17 +173,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if (!viewIsShifted && bottomTextField.isFirstResponder()) {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
-            viewIsShifted = true
+        if (bottomTextField.isFirstResponder()) {
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if (viewIsShifted) {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
-            viewIsShifted = false
-        }
+        view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -215,7 +209,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
                 }
             }
         }
-        self.presentViewController(avc, animated: true, completion: nil)
+        presentViewController(avc, animated: true, completion: nil)
     }
     
     func generateMemedImage() -> UIImage {
