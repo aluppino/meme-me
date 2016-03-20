@@ -153,7 +153,10 @@
                             <constraint firstItem="4uA-t1-8Mk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Ahd-v0-LaC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NGV-YB-pZx" secondAttribute="trailing" constant="-20" id="BPV-Ce-Uyx"/>
                             <constraint firstItem="4uA-t1-8Mk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Bpu-ph-x69"/>
+                            <constraint firstItem="gkM-i4-goz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GFv-ea-e6A"/>
                             <constraint firstItem="RU9-rK-ftv" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Jbg-UT-TUW"/>
+                            <constraint firstItem="2ST-NG-BqO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mk9-Ps-Veh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NGV-YB-pZx" secondAttribute="bottom" id="Ow1-hY-fqL"/>
                             <constraint firstItem="Dja-s8-SEV" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="P0P-Qx-t8l"/>
                             <constraint firstItem="NGV-YB-pZx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="QQN-J1-q28"/>
                             <constraint firstItem="uln-Tl-lnM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="SLu-Sg-7by"/>
@@ -162,9 +165,11 @@
                             <constraint firstItem="RU9-rK-ftv" firstAttribute="bottom" secondItem="4uA-t1-8Mk" secondAttribute="bottom" constant="-10" id="Yy6-Jv-wdR"/>
                             <constraint firstItem="gkM-i4-goz" firstAttribute="top" secondItem="2ST-NG-BqO" secondAttribute="bottom" constant="17" id="aIs-6q-grP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uln-Tl-lnM" secondAttribute="trailing" constant="-20" id="cy9-bg-Yx7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NGV-YB-pZx" secondAttribute="bottom" id="gZM-9M-azd"/>
                             <constraint firstItem="NGV-YB-pZx" firstAttribute="top" secondItem="gkM-i4-goz" secondAttribute="bottom" constant="10" id="hYC-0P-7sq"/>
                             <constraint firstItem="NGV-YB-pZx" firstAttribute="top" secondItem="4uA-t1-8Mk" secondAttribute="bottom" id="l6j-Gh-Oj3"/>
                             <constraint firstItem="NGV-YB-pZx" firstAttribute="top" secondItem="gkM-i4-goz" secondAttribute="bottom" constant="10" id="mOR-BI-R2w"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NGV-YB-pZx" secondAttribute="bottom" id="nO2-rp-kiW"/>
                             <constraint firstItem="RU9-rK-ftv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rG7-OR-1xn"/>
                             <constraint firstItem="uln-Tl-lnM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rJp-cy-gmd"/>
                             <constraint firstItem="Dja-s8-SEV" firstAttribute="top" secondItem="4uA-t1-8Mk" secondAttribute="top" constant="-10" id="vTX-fb-Llp">
@@ -192,8 +197,10 @@
                                 <exclude reference="9to-2l-Bpj"/>
                                 <exclude reference="P0P-Qx-t8l"/>
                                 <exclude reference="vTX-fb-Llp"/>
+                                <exclude reference="Mk9-Ps-Veh"/>
                                 <exclude reference="wgn-EG-QGh"/>
                                 <exclude reference="2CF-O3-1L3"/>
+                                <exclude reference="GFv-ea-e6A"/>
                                 <exclude reference="WfK-eu-zs5"/>
                                 <exclude reference="aIs-6q-grP"/>
                                 <exclude reference="Jbg-UT-TUW"/>
@@ -205,7 +212,10 @@
                                 <exclude reference="hYC-0P-7sq"/>
                                 <exclude reference="l6j-Gh-Oj3"/>
                                 <exclude reference="mOR-BI-R2w"/>
+                                <exclude reference="Ow1-hY-fqL"/>
                                 <exclude reference="XmC-Wh-XwP"/>
+                                <exclude reference="gZM-9M-azd"/>
+                                <exclude reference="nO2-rp-kiW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -228,9 +238,11 @@
                                 <include reference="9to-2l-Bpj"/>
                                 <include reference="P0P-Qx-t8l"/>
                                 <include reference="vTX-fb-Llp"/>
-                                <include reference="wgn-EG-QGh"/>
+                                <include reference="Mk9-Ps-Veh"/>
+                                <exclude reference="wgn-EG-QGh"/>
                                 <include reference="2CF-O3-1L3"/>
-                                <include reference="WfK-eu-zs5"/>
+                                <include reference="GFv-ea-e6A"/>
+                                <exclude reference="WfK-eu-zs5"/>
                                 <exclude reference="aIs-6q-grP"/>
                                 <include reference="Jbg-UT-TUW"/>
                                 <include reference="Yy6-Jv-wdR"/>
@@ -241,7 +253,10 @@
                                 <include reference="hYC-0P-7sq"/>
                                 <include reference="l6j-Gh-Oj3"/>
                                 <exclude reference="mOR-BI-R2w"/>
-                                <include reference="XmC-Wh-XwP"/>
+                                <include reference="Ow1-hY-fqL"/>
+                                <exclude reference="XmC-Wh-XwP"/>
+                                <exclude reference="gZM-9M-azd"/>
+                                <exclude reference="nO2-rp-kiW"/>
                             </mask>
                         </variation>
                         <connections>

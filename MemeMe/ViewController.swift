@@ -132,11 +132,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomTextField.hidden = false
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        readjustConstraints()
-    }
-    
     func readjustConstraints() {
         if let image = imageView.image {
             let imageRatio = image.size.width / image.size.height
